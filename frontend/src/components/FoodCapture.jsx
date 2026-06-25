@@ -1,6 +1,6 @@
 import { useRef, useState, useCallback } from "react"
 
-function FoodCapture({ onCapture }) {
+function FoodCapture({ onCapture, onCancel }) {
   const fileInputRef = useRef(null)
   const [preview, setPreview] = useState(null)
   const [isDragging, setIsDragging] = useState(false)
@@ -20,8 +20,8 @@ function FoodCapture({ onCapture }) {
         onDragOver={(e) => { e.preventDefault(); setIsDragging(true) }}
         onDragLeave={() => setIsDragging(false)}
         onDrop={(e) => { e.preventDefault(); setIsDragging(false); handleFile(e.dataTransfer.files[0]) }}
-        className={`card cursor-pointer rounded-2xl border-2 border-dashed transition-all duration-300 ${isDragging ? 'scale-[1.01]' : ''} ${preview ? 'p-0' : 'p-12'}`}
-        style={{ borderColor: isDragging ? '#06b6d4' : 'rgba(180,190,210,0.4)', background: isDragging ? 'rgba(6,182,212,0.03)' : undefined }}>
+        className={`cursor-pointer rounded-2xl border-2 border-dashed transition-all duration-300 box-glow ${isDragging ? 'scale-[1.02]' : 'hover:scale-[1.01]'} ${preview ? 'p-0' : 'p-12'}`}
+        style={{ borderColor: isDragging ? '#06b6d4' : 'rgba(147,197,253,0.4)', background: isDragging ? 'rgba(6,182,212,0.05)' : 'rgba(255,255,255,0.9)', boxShadow: '0 4px 16px rgba(59,130,246,0.1), 0 12px 40px rgba(59,130,246,0.08)', border: '2px solid rgba(147,197,253,0.4)', backdropFilter: 'blur(12px)' }}>
 
         {preview ? (
           <div className="relative">
@@ -34,7 +34,7 @@ function FoodCapture({ onCapture }) {
                 </div>
               </div>
             )}
-            <button onClick={(e) => { e.stopPropagation(); setPreview(null) }}
+            <button onClick={(e) => { e.stopPropagation(); setPreview(null); onCancel && onCancel() }}
               className="absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center transition-all shadow-lg"
               style={{ background: 'rgba(255,255,255,0.9)', color: '#94a3b8' }}
               onMouseEnter={(e) => { e.currentTarget.style.color = '#ef4444' }}
@@ -54,7 +54,7 @@ function FoodCapture({ onCapture }) {
             <p className="text-slate-400 text-base">Drag & drop or click to browse</p>
             <div className="mt-5 flex items-center justify-center gap-2">
               {['JPG','PNG','WEBP'].map(f => (
-                <span key={f} className="px-3 py-1 rounded-lg text-sm font-medium" style={{ background: 'rgba(0,0,0,0.04)', color: '#94a3b8', border: '1px solid rgba(180,190,210,0.3)' }}>{f}</span>
+                <span key={f} className="px-3 py-1 rounded-lg text-sm font-medium" style={{ background: 'rgba(191,219,254,0.2)', color: '#64748b', border: '1px solid rgba(147,197,253,0.25)' }}>{f}</span>
               ))}
             </div>
           </div>

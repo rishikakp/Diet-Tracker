@@ -22,7 +22,7 @@ function AuthPage({ onAuth }) {
   return (
     <div className="min-h-screen bg-main flex items-center justify-center p-4">
       <div className="food-symbols">
-        {['🍴','🍽️','🥄','🥗','🍎','🥩','🥑','🍳','🥣','🍋'].map((s, i) => (
+        {['🍌','🍅','🍔','🥦','🥒','🍳','🍉','🍍','🥑','🍕','🌮','🍇','🧁','🧀','🍓','🍰','🥕','🍊'].map((s, i) => (
           <div key={i} className="food-symbol">{s}</div>
         ))}
       </div>
@@ -30,57 +30,59 @@ function AuthPage({ onAuth }) {
         {[...Array(8)].map((_, i) => <div key={i} className="particle" />)}
       </div>
 
-      <div className="w-full max-w-sm relative z-10">
+      <div className="w-full max-w-lg relative z-10">
         <div className="text-center mb-8 animate-fade-in-down">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-4 shadow-lg" style={{ background: 'linear-gradient(135deg, #06b6d4, #10b981)', boxShadow: '0 6px 20px rgba(6,182,212,0.25)' }}>
-            <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none">
-              <path d="M12 22c1-2.5 3-4.5 3-8V6c0-1.5-1-3-3-3S9 4.5 9 6v8c0 3.5 2 5.5 3 8z" fill="white" opacity="0.85"/>
-              <path d="M12 3V1M10 2c0 1.5 1 3 2 4 1-1 2-2.5 2-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" opacity="0.7"/>
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 shadow-lg" style={{ background: 'linear-gradient(135deg, #10b981, #06b6d4)', boxShadow: '0 6px 20px rgba(16,185,129,0.25)' }}>
+            <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2C9 2 6 5 6 9c0 2.5 1 4.5 3 6l-1 5h8l-1-5c2-1.5 3-3.5 3-6 0-4-3-7-6-7z" fill="currentColor" opacity="0.85"/>
+              <path d="M12 2c1.5 0 3 1 3.5 3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" fill="none"/>
+              <path d="M12 2c-1.5 0-3 1-3.5 3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" fill="none"/>
+              <circle cx="12" cy="9" r="2" fill="rgba(255,255,255,0.3)"/>
             </svg>
           </div>
-          <h1 className="text-3xl font-extrabold"><span className="text-slate-700">DIET </span><span className="text-cyan-500">TRACKER</span></h1>
-          <p className="text-sm text-slate-400 mt-1">AI-powered food recognition</p>
+          <h1 className="text-4xl font-extrabold"><span className="text-slate-700">DIET </span><span className="text-cyan-500">TRACKER</span></h1>
+          <p className="text-base text-slate-500 mt-1">AI-powered food recognition</p>
         </div>
 
-        <div className="card p-6 animate-fade-in-up">
-          <h2 className="text-lg font-bold text-slate-700 text-center mb-5">
+        <div className="card p-8 animate-fade-in-up">
+          <h2 className="text-xl font-bold text-slate-700 text-center mb-6">
             {isLogin ? "Welcome back" : "Create account"}
           </h2>
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <div className="relative">
-              <div className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400">
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
               </div>
               <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}
-                className="w-full rounded-xl px-4 py-3 pl-10 text-sm transition-all"
+                className="w-full rounded-xl px-5 py-4 pl-12 text-base transition-all"
                 style={{ background: 'rgba(255,255,255,0.9)', border: '1px solid rgba(180,190,210,0.5)', color: '#2d3748' }}
                 autoComplete="username" />
             </div>
 
             <div className="relative">
-              <div className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400">
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
               </div>
               <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}
-                className="w-full rounded-xl px-4 py-3 pl-10 text-sm transition-all"
+                className="w-full rounded-xl px-5 py-4 pl-12 text-base transition-all"
                 style={{ background: 'rgba(255,255,255,0.9)', border: '1px solid rgba(180,190,210,0.5)', color: '#2d3748' }}
                 autoComplete={isLogin ? "current-password" : "new-password"} />
             </div>
 
             {!isLogin && (
               <div className="relative animate-fade-in">
-                <div className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
                   </svg>
                 </div>
                 <input type="number" placeholder="Body weight (kg) — optional" value={weight} onChange={(e) => setWeight(e.target.value)} min="1" max="500"
-                  className="w-full rounded-xl px-4 py-3 pl-10 text-sm transition-all"
+                  className="w-full rounded-xl px-5 py-4 pl-12 text-base transition-all"
                   style={{ background: 'rgba(255,255,255,0.9)', border: '1px solid rgba(180,190,210,0.5)', color: '#2d3748' }} />
               </div>
             )}

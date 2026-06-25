@@ -30,7 +30,7 @@ function NutritionCard({ result }) {
         <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl shadow-lg" style={{ background: 'linear-gradient(135deg, #06b6d4, #10b981)', boxShadow: '0 4px 16px rgba(6,182,212,0.2)' }}>🍽️</div>
         <div className="flex-1">
           <h2 className="text-2xl font-bold text-slate-700 capitalize">{result.food?.replace(/_/g, ' ')}</h2>
-          {result.confidence && <p className="text-base text-slate-400 mt-0.5">{result.confidence}% confidence</p>}
+          {result.confidence && <p className="text-base text-slate-500 mt-0.5">{result.confidence}% confidence</p>}
         </div>
         {!hasNutrition && (
           <span className="text-sm px-3 py-1.5 rounded-full font-semibold" style={{ background: 'rgba(245,158,11,0.08)', color: '#d97706', border: '1px solid rgba(245,158,11,0.15)' }}>Not in DB</span>
