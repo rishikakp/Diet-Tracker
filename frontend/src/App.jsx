@@ -12,13 +12,14 @@ import {
 
 function Logo() {
   return (
-    <div className="w-11 h-11 rounded-xl flex items-center justify-center relative overflow-hidden group cursor-pointer border-animated" style={{ background: 'linear-gradient(135deg, #10b981, #06b6d4)', boxShadow: '0 4px 16px rgba(16,185,129,0.25)' }}>
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: 'linear-gradient(135deg, #34d399, #22d3ee)' }} />
+    <div className="w-11 h-11 rounded-xl flex items-center justify-center relative overflow-hidden group cursor-pointer border-animated" style={{ background: 'linear-gradient(135deg, #6366f1, #06b6d4)', boxShadow: '0 4px 16px rgba(99,102,241,0.2)' }}>
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: 'linear-gradient(135deg, #818cf8, #22d3ee)' }} />
       <svg className="w-6 h-6 text-white relative z-10" viewBox="0 0 24 24" fill="none" style={{ animation: 'logoPulse 2.5s ease-in-out infinite' }}>
-        <path d="M12 2C9 2 6 5 6 9c0 2.5 1 4.5 3 6l-1 5h8l-1-5c2-1.5 3-3.5 3-6 0-4-3-7-6-7z" fill="currentColor" opacity="0.85"/>
-        <path d="M12 2c1.5 0 3 1 3.5 3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" fill="none"/>
-        <path d="M12 2c-1.5 0-3 1-3.5 3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" fill="none"/>
-        <circle cx="12" cy="9" r="2" fill="rgba(255,255,255,0.3)"/>
+        <circle cx="12" cy="13" r="8" stroke="currentColor" strokeWidth="1.8" fill="none"/>
+        <path d="M6 10c0-4 2.5-7 6-7s6 3 6 7" stroke="currentColor" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
+        <path d="M12 3v-1" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+        <path d="M15 5.5c1.5-1 3.5-1 5 0" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" fill="none" opacity="0.7"/>
+        <path d="M9 13h6" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.4"/>
       </svg>
     </div>
   )
